@@ -57,7 +57,10 @@ function enterClick (line){
     span.innerHTML = line
     img.src = "img/x.png"
     img.alt = "img"
-    img.setAttribute('onclick', `deleteString(${counts})`)
+    img.addEventListener('click', function(event){
+        div.hidden = true 
+        counts++
+    } )
 
     //То в каком порядке должны находиться теги
     checklist.appendChild(div)
@@ -67,13 +70,13 @@ function enterClick (line){
     p.appendChild(img)
 
     count++
-    counts++
 }
 
 //Скрывает чекбокс и меняет стиль текста
 const checkboxClick = number => {
     text[number].style.color = 'grey'
     text[number].style.textDecoration = 'line-through'
+    text[number].style.vis
 }
 
 //Удаление одного div
