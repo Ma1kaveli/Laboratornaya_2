@@ -94,3 +94,6 @@ body{
     margin: 0 7px 15px;
 }
 
+.check input:checked{
+    visibility: hidden;
+}

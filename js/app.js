@@ -29,8 +29,6 @@ const line = document.querySelector('[maxLength="30"]')
 //checklist - в нем находятся и создаются задачи
 const checklist = document.querySelector('[class="checklist"]')
 
-let tcheckbox = document.querySelector('[type="checkbox"]')
-
 let count = 5
 let counts = 5
 
@@ -44,8 +42,6 @@ line.addEventListener('keydown', function(event){
 })
 
 function enterClick (line){
-    let a = count
-    let b = counts
     var div = document.createElement('div')
     var p = document.createElement('p')
     var input = document.createElement('input')
@@ -56,9 +52,11 @@ function enterClick (line){
     div.className = 'list check'
     input.type = "checkbox"
     input.name = "check"
+    input.setAttribute('onclick', 'checkClick()')
     span.innerHTML = line
     img.src = "img/x.png"
     img.alt = "img"
+    img.setAttribute('onclick', 'closeClick()')
 
     //То в каком порядке должны находиться теги
     checklist.appendChild(div)
@@ -66,29 +64,31 @@ function enterClick (line){
     p.appendChild(input)
     p.appendChild(span)
     p.appendChild(img)
-
-    input.onclick = checkboxClick(a)
-    img.onlclick = deleteString(b)
-
-    count++
-    counts++
-
-    console.log(count)
-    console.log(counts)
 }
 
 //Скрывает чекбокс и меняет стиль текста
-const checkboxClick = number => {
-    tcheckBox[number].hidden = true
+const checkboxClick = (number) => {
     text[number].style.color = 'grey'
     text[number].style.textDecoration = 'line-through'
-    text[number].style.marginLeft = '26px'
 }
 
 //Удаление одного div
-
 const deleteString = n => {
     block[n].hidden = true
 }
+
+function checkClick(){
+    checkboxClick(count)
+
+    count++
+}
+
+function closeClick(){
+    deleteString(counts)
+    
+    counts++
+}
+
+
 //#endregion
 
