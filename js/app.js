@@ -30,7 +30,6 @@ const line = document.querySelector('[maxLength="30"]')
 const checklist = document.querySelector('[class="checklist"]')
 
 let count = 5
-let counts = 5
 
 
 //Если Enter, запускает enterClick
@@ -58,8 +57,7 @@ function enterClick (line){
     img.src = "img/x.png"
     img.alt = "img"
     img.addEventListener('click', function(){
-        div.hidden = true 
-        counts++
+        div.hidden = true
     } )
 
     //То в каком порядке должны находиться теги
