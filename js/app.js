@@ -57,7 +57,7 @@ function enterClick (line){
     span.innerHTML = line
     img.src = "img/x.png"
     img.alt = "img"
-    img.addEventListener('click', function(event){
+    img.addEventListener('click', function(){
         div.hidden = true 
         counts++
     } )
